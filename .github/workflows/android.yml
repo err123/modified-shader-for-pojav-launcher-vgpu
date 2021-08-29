@@ -1,26 +1,12 @@
 name: Vgpu-action
 
-on:
-  push:
+on: used
+  push: attempt to deploy
     branches: [ main ]
-  pull_request:
+  pull_request: vgpu2
     branches: [ main ]
 
-jobs:
-  build:
+jobs: build
+  build: build
 
     runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        cache: gradle
-
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
